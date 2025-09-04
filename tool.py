@@ -138,27 +138,29 @@ def edit_text_layer(psd_file, part, dataIndex):
     domains = ['electricstock.io.vn', 'giaydepnhanh.io.vn', 'noithat3d.io.vn', 'smartrent.id.vn', 'thoitrangnhanh.io.vn']
     input = {}
     capitals = [
-        { "value": "1.000.000.000", "text": "Một tỷ đồng" },
-        { "value": "1.100.000.000", "text": "Một tỷ một trăm triệu đồng" },
-        { "value": "1.200.000.000", "text": "Một tỷ hai trăm triệu đồng" },
-        { "value": "1.300.000.000", "text": "Một tỷ ba trăm triệu đồng" },
-        { "value": "1.400.000.000", "text": "Một tỷ bốn trăm triệu đồng" },
-        { "value": "1.500.000.000", "text": "Một tỷ năm trăm triệu đồng" },
-        { "value": "1.600.000.000", "text": "Một tỷ sáu trăm triệu đồng" },
-        { "value": "1.700.000.000", "text": "Một tỷ bảy trăm triệu đồng" },
-        { "value": "1.800.000.000", "text": "Một tỷ tám trăm triệu đồng" },
-        { "value": "1.900.000.000", "text": "Một tỷ chín trăm triệu đồng" },
-        { "value": "2.000.000.000", "text": "Hai tỷ đồng" },
-        { "value": "2.100.000.000", "text": "Hai tỷ một trăm triệu đồng" },
-        { "value": "2.200.000.000", "text": "Hai tỷ hai trăm triệu đồng" },
-        { "value": "2.300.000.000", "text": "Hai tỷ ba trăm triệu đồng" },
-        { "value": "2.400.000.000", "text": "Hai tỷ bốn trăm triệu đồng" },
-        { "value": "2.500.000.000", "text": "Hai tỷ năm trăm triệu đồng" },
-        { "value": "2.600.000.000", "text": "Hai tỷ sáu trăm triệu đồng" },
-        { "value": "2.700.000.000", "text": "Hai tỷ bảy trăm triệu đồng" },
-        { "value": "2.800.000.000", "text": "Hai tỷ tám trăm triệu đồng" },
-        { "value": "2.900.000.000", "text": "Hai tỷ chín trăm triệu đồng" },
-        { "value": "3.000.000.000", "text": "Ba tỷ đồng" }
+        [
+  { "value": "542.207.610.000", "text": "542 tỷ 207 triệu 610 nghìn đồng" },
+  { "value": "564.028.826.000", "text": "564 tỷ 28 triệu 826 nghìn đồng" },
+  { "value": "493.612.533.000", "text": "493 tỷ 612 triệu 533 nghìn đồng" },
+  { "value": "433.938.449.000", "text": "433 tỷ 938 triệu 449 nghìn đồng" },
+  { "value": "560.657.872.000", "text": "560 tỷ 657 triệu 872 nghìn đồng" },
+  { "value": "467.035.402.000", "text": "467 tỷ 35 triệu 402 nghìn đồng" },
+  { "value": "400.155.954.000", "text": "400 tỷ 155 triệu 954 nghìn đồng" },
+  { "value": "515.696.650.000", "text": "515 tỷ 696 triệu 650 nghìn đồng" },
+  { "value": "503.529.120.000", "text": "503 tỷ 529 triệu 120 nghìn đồng" },
+  { "value": "543.233.760.000", "text": "543 tỷ 233 triệu 760 nghìn đồng" },
+  { "value": "573.910.873.000", "text": "573 tỷ 910 triệu 873 nghìn đồng" },
+  { "value": "485.809.287.000", "text": "485 tỷ 809 triệu 287 nghìn đồng" },
+  { "value": "503.290.090.000", "text": "503 tỷ 290 triệu 90 nghìn đồng" },
+  { "value": "488.498.148.000", "text": "488 tỷ 498 triệu 148 nghìn đồng" },
+  { "value": "527.222.407.000", "text": "527 tỷ 222 triệu 407 nghìn đồng" },
+  { "value": "512.958.992.000", "text": "512 tỷ 958 triệu 992 nghìn đồng" },
+  { "value": "582.842.240.000", "text": "582 tỷ 842 triệu 240 nghìn đồng" },
+  { "value": "513.850.237.000", "text": "513 tỷ 850 triệu 237 nghìn đồng" },
+  { "value": "515.507.416.000", "text": "515 tỷ 507 triệu 416 nghìn đồng" },
+  { "value": "572.294.625.000", "text": "572 tỷ 294 triệu 625 nghìn đồng" }
+]
+
     ]
     input["business_code"] = data[dataIndex]["Mã số thuế"]
     print(data[dataIndex]["Mã số thuế"])
@@ -194,8 +196,8 @@ def edit_text_layer(psd_file, part, dataIndex):
         places = list(filter(lambda element: element['name'].lower() == "hà nội", json.load(placeCode)))
         if identityNum is None:
             identityNum = places[0]["code"] + fakeFourthCharacter(0 if gender == "Nam" else 1) + companyOwnerBirthDay.split('/')[-1][2:-1] + ''.join(str(random.randint(0, 9)) for _ in range(6))
-        input["owned_company_id_number"] = identityNum
-        input["legal_company_id_number"] = "Số giấy chứng thực cá nhân: " + identityNum
+        input["cccd"] = identityNum
+        input["legal_company_id_number"] = identityNum
     capitalInfo = capitals[random.randint(0, len(capitals) - 1)]
     input["capital"] = capitalInfo["value"] + " đồng"
     input["capital_by_text"] = capitalInfo["text"]
