@@ -11,7 +11,21 @@ import random
 
 base_dir = os.getcwd()
 data = []
-with open(os.path.abspath("hanoi/ha-noi-7-7.json"), "r", encoding="utf-8") as file:
+fileData = ""
+# nhập file path vào đây(tính từ vị trí folder dự án vd:hanoi/ha-noi-7-7.json)
+# Nội dung file tham khảo format trong folder hanoi
+#  1 element sẽ gồm các thành phần như thế này, giữ nguyên format ngày tháng:
+#  {
+#     "Tên công ty": "CÔNG TY CỔ PHẦN CÔNG NGHỆ THỰC PHẨM THIÊN PHÚ",
+#     "Tên quốc tế": "THIEN PHU FOOD TECHNOLOGY JOINT STOCK COMPANY",
+#     "Mã số thuế": "0110986184",
+#     "Tên viết tắt": "......"
+#     "Địa chỉ": "Nhà số 45 Ngõ 45, Phố Nguyễn Gia Bồng, Phường Ngọc Thuỵ, Quận Long Biên, Thành phố Hà Nội, Việt Nam",
+#     "Người đại diện": "NGUYỄN THỊ THANH HUYỀN",
+#     "Điện thoại": "0359 438 309",
+#     "Ngày hoạt động": "2025-03-12"
+#  }
+with open(os.path.abspath(fileData), "r", encoding="utf-8") as file:
     data = json.load(file)  # Chuyển nội dung file thành Python dictionary 
     data = list(filter(lambda element: "cổ phần" in element['Tên công ty'].lower() and element and "Tên quốc tế" in element, data))
 
@@ -81,19 +95,19 @@ def fakeFourthCharacter(gender):
         else:
             return "9"
 
-custom_blacklist = {
-    "co",
-    "co.",
-    "co.,"
-    "company",
-    "ltd",
-    "ltd.",
-    "inc",
-    "inc.",
-    "llc",
-    "group",
-    "&",
-}
+# custom_blacklist = {
+#     "co",
+#     "co.",
+#     "co.,"
+#     "company",
+#     "ltd",
+#     "ltd.",
+#     "inc",
+#     "inc.",
+#     "llc",
+#     "group",
+#     "&",
+# }
 # stop_words = set(stopwords.words("english")).union(custom_blacklist)
 # def generate_acronym(text):
 # # Loại bỏ dấu câu và chuyển về chữ thường
@@ -167,7 +181,7 @@ def edit_text_layer(psd_file, part, dataIndex):
     global identityNum
     global identityDate
     global homeAddress
-    domains = ['electricstock.io.vn', 'giaydepnhanh.io.vn', 'noithat3d.io.vn', 'smartrent.id.vn', 'thoitrangnhanh.io.vn']
+    # domains = ['electricstock.io.vn', 'giaydepnhanh.io.vn', 'noithat3d.io.vn', 'smartrent.id.vn', 'thoitrangnhanh.io.vn']
     input = {}
     capitals = [
         { "value": "542.207.610.000", "text": "Năm trăm bốn mươi hai tỷ hai trăm linh bảy triệu sáu trăm mười nghìn đồng" },
